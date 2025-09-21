@@ -1,11 +1,5 @@
+<!--#include file="dbconfig.asp" -->
 <%
-
-' Parametros de conexion  **(MySQL)**
-Const dbServer = "10.70.80.45"
-Const dbPort   = "3306"
-Const dbDB     = "SAB_DEV"
-Const dbUS     = "sab"
-Const dbPW     = "ususab"
 
 '---- CursorTypeEnum Values ----
 Const adOpenForwardOnly = 0
@@ -36,18 +30,8 @@ Const adLockBatchOptimistic = 4
 Function Conectar_ADM() ' as ADODB.Connection
     Dim db  ' as ADODB.Connection
     Dim cs  ' connection string ODBC (DSN-less)
-
-    ' Requiere tener instalado el driver: MySQL ODBC 8.0 (Unicode)
-    ' Sugerido: Driver={MySQL ODBC 8.0 Unicode Driver}
-    ' Charset utf8mb4 para acentos/emoji y OPTION=3 (ajustes comunes del driver)
-    cs = "Driver={MySQL ODBC 9.4 Unicode Driver};" & _
-     "Server=192.168.100.254;" & _
-     "Port=3306;" & _
-     "Database=SAB_DEV;" & _
-     "User=sab;" & _
-     "Password=ususab;" & _
-     "charset=utf8mb4;" & _
-     "Option=3;"
+     ' Requiere tener instalado el driver configurado en dbconfig.asp
+    cs = SabiumBuildConnectionString()
     Set db = Server.CreateObject("ADODB.Connection")
     ' (Opcional pero recomendado con ODBC): usar cursores en cliente
     On Error Resume Next

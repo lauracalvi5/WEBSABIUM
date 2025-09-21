@@ -8,14 +8,11 @@ SET Conn=Conectar_ADM()
     <title>Sabium | Aulas a un click</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="icon" href="images/ISOTIPO_ISOTIPO.ico">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@600&family=Poppins:wght@600&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="fonts/icomoon/style.css">
-	
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
