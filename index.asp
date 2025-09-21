@@ -1,0 +1,586 @@
+<!--#include file="rutinas.asp"-->
+<%
+SET Conn=Conectar_ADM()
+%>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sabium | Aulas a un click</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@600&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+	
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+<style>
+      .slide-1{
+        position: relative;
+        width: 100%;
+        min-height: 100vh;
+        background: url("images/portadasabium.png") no-repeat center center;
+        background-size: cover;
+      }
+      @media (max-width: 991.98px){
+        .slide-1{
+          background-image: url("images/portadasabium-mobile.png");
+        }
+      }
+      .testimony-section{
+        background: url("images/fondo2.png") no-repeat center center;
+        background-size: cover;
+      }
+      @media (max-width: 991.98px){
+        .testimony-section{
+          background-image: url("images/fondo2-mobile.png");
+        }
+      }
+      .container{
+        position:relative;
+        z-index:1;}
+      .pinyon-script-regular{
+        font-family:"Pinyon Script",cursive;
+        font-weight:bold;
+        font-style:normal;
+        font-size:24px;}
+      .imperial-script-regular{
+        font-family:"Imperial Script",cursive;
+        font-weight:bold;
+        font-style:normal;
+        font-size:28px;}
+      .Baloo-quienes-somos{
+        font-family:"Baloo Chettan 2", cursive;
+        font-optical-sizing:auto;
+        font-weight:600;
+        font-style:italic;
+        font-size:18px;
+        font-variation-settings:"wdth" 100;}
+      .help-block{
+        display:block;
+        font-family:"Baloo Chettan 2", cursive;
+        font-size:14px;
+        margin:5px 0 5px 5px;
+        color:#ff0000;}
+      .envio-block{
+        display:block;
+        font-family:"Baloo Chettan 2", cursive;
+        font-size:16px;
+        margin:5px 0 5px 5px;
+        color:#FF8E4B;
+        letter-spacing:.1em;}
+    </style>
+  </head>
+
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    
+    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
+      <div class="container-fluid">
+        <div class="d-flex align-items-center">
+
+          
+          <div class="site-logo mr-auto w-25 header-left">
+            <a href="index.asp">
+              <img class="isotipo" src="images/ISOTIPO_ISOTIPO.png" id="isotipo-desktop" alt="Sabium">
+            </a>
+          </div>
+
+          
+          <div class="mx-auto text-center header-center">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+              <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block m-0 p-0">
+                <li><a href="#home-section" class="nav-link">Inicio</a></li>
+                <li><a href="#courses-section" class="nav-link">Comunidad</a></li>
+                <li><a href="#programs-section" class="nav-link">Ventajas</a></li>
+                <li><a href="#teachers-section" class="nav-link">Quienes somos</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          
+          <div class="ml-auto w-25 header-right">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+              <ul style="list-style-type:none;" class="m-0 p-0 d-flex align-items-center gap-2">
+                <li class="d-inline-block d-lg-none mr-2">
+                  <a href="index.asp" aria-label="Inicio">
+                    <img class="isotipo" src="images/ISOTIPO_ISOTIPO.png" id="isotipc" alt="Sabium">
+                  </a>
+                </li>
+                <li class="cta">
+                  <a href="#contact-section" class="nav-link"><span>Cont&aacute;ctenos</span></a>
+                </li>
+              </ul>
+            </nav>
+
+            
+            <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black">
+              <span class="icon-menu h3"></span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </header>
+
+
+    <div class="intro-section" id="home-section">
+      <div class="slide-1">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-12">
+              <div class="row align-items-center">
+                <div class="col-lg-6 mb-4">
+                  <div id="sabiumHero" class="sabium-hero" data-aos="fade-up" data-aos-delay="500">
+                    <img src="images/LOGO_1.png" class="logo-sabium" alt="Logo Sabium">
+                    <div class="typewriter" aria-label="aulas a un clic"></div>
+                    <img src="images/CLIC-04.png"              alt="" class="spark"    aria-hidden="true">
+                    <img src="images/RENGLONES-05.png"         alt="" class="curve"    aria-hidden="true">
+                    <img src="images/ALMANAQUE-03.png"         alt="" class="calendar" aria-hidden="true">
+                  </div>
+                  <p>
+                    <a href="demo.html" class="btn btn-primary boton-demo py-3 px-5 btn-pill" data-aos="fade-up" data-aos-delay="500">Solicitar demo gratuita</a>
+                  </p>
+              </div>
+
+                <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="500">
+                  <form action="login_valida.asp" method="post" class="form-box">
+                    <h3 class="h4 text-black mb-4 text-center">Ingreso al Sistema</h3>
+
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="DNI" id="DNI" name="DNI" maxlength="8">
+                    </div>
+
+                    <div class="form-group">
+                      <input type="password" class="form-control" placeholder="Contraseña" id="contraseña" name="contraseña" maxlength="4">
+                    </div>
+
+                    <div class="form-group">
+                      <select class="form-control campo_corto" name="cb_colegio" id="cb_colegio" style="width:100%;">
+                        <option value="" selected>Seleccione su institución</option>
+                        <%
+                          SQL_Colegios = "SELECT * FROM colegios WHERE col_baja='N' ORDER BY col_nombre"
+                          set rs_Colegios=Conn.Execute (sql_Colegios)
+                          do until rs_Colegios.eof
+                        %>
+                          <option value="<%=rs_Colegios("col_id")%>"><%=ucase(rs_Colegios("col_nombre"))%></option>
+                        <%
+                          rs_Colegios.movenext
+                          loop
+                        %>
+                      </select>
+                    </div>
+
+                    <div class="form-group text-center">
+                      <input type="submit" class="btn btn-primary btn-pill" value="Acceder">
+                    </div>
+                    <small class="text-center d-block">¿Problemas para iniciar sesión? ¿Olvidó su clave?</small>
+                  </form>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section" id="courses-section" style="background:#ea878a;"></div>
+
+    <div class="site-section courses-title" id="courses-section">
+      <div class="container">
+        <div class="row mb-5 justify-content-center">
+          <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
+            <h2 class="section-title">Comunidad</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section courses-entry-wrap" data-aos="fade-up" data-aos-delay="100">
+      <div class="container">
+        <div class="row">
+          <div class="owl-carousel col-12 nonloop-block-14">
+
+            <div class="course bg-white h-100 align-self-stretch">
+              <figure class="m-0">
+                <a href="course-single.html"><img src="images/equipos directivos.png" alt="Image" class="img-fluid"></a>
+              </figure>
+              <div class="course-inner-text py-4 px-4" style="height:500px;background-color:#D8D8D8;">
+                <h3 style="text-align:center;"><a href="#" style="color:#56505e;font-weight:bold;">Equipos Directivos y Coodinadores</a></h3>
+                <p style="text-align:center;color:#56505e;padding-top:25px">¿Por qué?</p>
+                <hr style="border: none; border-top: 2px solid #848587; width: 90%; margin: 16px auto;">
+                <p style="text-align:center;color:#56505e;">Supervisan y organizan actividades pedagógicas y toman decisiones estratégicas.</p>
+                  <p class="solucion-sabium-btn">
+                    <span class="btn btn-primary btn-block btn-pill">Solución Sabium</span>
+                  </p>
+                <p style="text-align:center;color:#56505e;">Supervisión en tiempo real, generación de reportes, planificación estratégica.</p>
+              </div>
+            </div>
+
+            <div class="course bg-white h-100 align-self-stretch">
+              <figure class="m-0">
+                <a href="course-single.html"><img src="images/docentes.png" alt="Image" class="img-fluid"></a>
+              </figure>
+              <div class="course-inner-text py-4 px-4" style="height:500px;background-color:#D8D8D8;">
+                <h3 style="text-align:center;"><a href="#" style="color:#56505e;font-weight:bold;">Docentes</a></h3>
+                <p style="text-align:center;color:#56505e;padding-top:25px">¿Por qué?</p>
+                <hr style="border: none; border-top: 2px solid #848587; width: 90%; margin: 16px auto;">
+                <p style="text-align:center;color:#56505e;">Ejecutan secuencias didácticas y alimentan el sistema con información del proceso pedagógico.</p>
+                <p class="solucion-sabium-btn">
+                    <span class="btn btn-primary btn-block btn-pill">Solución Sabium</span>
+                </p>
+                <p style="text-align:center;color:#56505e;">Calendarización de la planificación, contenidos alineados con los NAP, planificación como producto final, optimización del tiempo.</p>
+              </div>
+            </div>
+
+            <div class="course bg-white h-100 align-self-stretch">
+              <figure class="m-0">
+                <a href="course-single.html"><img src="images/Institución Educativa.png" alt="Image" class="img-fluid"></a>
+              </figure>
+              <div class="course-inner-text py-4 px-4" style="height:500px;background-color:#D8D8D8;">
+                <h3 style="text-align:center;"><a href="#" style="color:#56505e;font-weight:bold;">Instituciones Educativas</a></h3>
+                <p style="text-align:center;color:#56505e;padding-top:25px;">¿Por qué?</p>
+                <hr style="border: none; border-top: 2px solid #848587; width: 90%; margin: 16px auto;">
+                <p style="text-align:center;color:#56505e;">Garantizan el cumplimiento de los objetivos institucionales y educativos.</p>
+                  <p class="solucion-sabium-btn">
+                    <span class="btn btn-primary btn-block btn-pill">Solución Sabium</span>
+                  </p>
+                <p style="text-align:center;color:#56505e;">Gestión pedagógica integral, estadísticas en tiempo real con políticas educativas.</p>
+              </div>
+            </div>
+
+            <div class="course bg-white h-100 align-self-stretch">
+              <figure class="m-0">
+                <a href="course-single.html"><img src="images/Organizaciones.png" alt="Image" class="img-fluid"></a>
+              </figure>
+              <div class="course-inner-text py-4 px-4" style="height:500px;background-color:#D8D8D8;">
+                <h3 style="text-align:center;"><a href="#" style="color:#56505e;font-weight:bold;">Organizaciones Internacionales y Escuelas Multilingues</a></h3>
+                <p style="text-align:center;color:#56505e;">¿Por qué?</p>
+                <hr style="border: none; border-top: 2px solid #848587; width: 90%; margin: 16px auto;">
+                <p style="text-align:center;color:#56505e;">Buscan estándares educativos internacionales y evaluaciones comparativas.</p>
+                  <p class="solucion-sabium-btn">
+                    <span class="btn btn-primary btn-block btn-pill">Solución Sabium</span>
+                </p>
+                <p style="text-align:center;color:#56505e;">Evaluaciones internacionales, reportes adaptados a estándares globales.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-7 text-center">
+            <button class="customPrevBtn btn btn-primary m-1">Anterior</button>
+            <button class="customNextBtn btn btn-primary m-1">Próximo</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section " id="programs-section" style="background:#ea878a;"></div>
+
+    <div class="site-section programs-title" id="programs-section">
+      <div class="container">
+        <div class="row mb-5 justify-content-center">
+          <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
+            <h2 class="section-title">Ventajas a un click</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section programs-entry-wrap" data-aos="fade-up" data-aos-delay="100" style="margin-top: 30px;">
+      <div class="container">
+          <div class="row mb-5 align-items-center">
+            <div class="col-lg-7 mb-5" data-aos="fade-up" data-aos-delay="100">
+              <img style="border-radius:20px;" src="images/monitoreo.png" alt="Image" class="img-fluid">
+            </div>
+            <div class="col-lg-5" data-aos="fade-up" data-aos-delay="200" style="padding-left: 70px;">
+              <h3 class="text-black mb-4 text-center">Monitoreo pedagógico</h3>
+              <p class="mb-4 text-center">Proporciona seguimiento pedagógico en tiempo real, fomentando una mayor supervisión y mejor toma de decisiones.</p>
+              <h3 class="text-black mb-4 text-center">Planificación en simples pasos</h3>
+              <p class="mb-4 text-center">Calendariza la ejecución de secuencias didácticas al instante, seleccionando entre índices de contenidos, todo en una misma plataforma, obteniendo la planificación como producto final.</p>
+            </div>
+          </div>
+
+          <div class="row mb-5 align-items-center">
+            <div class="col-lg-7 mb-5 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
+              <img style="border-radius:20px;" src="images/secuencias.png" alt="Image" class="img-fluid">
+            </div>
+            <div class="col-lg-5 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200" style="padding-right: 70px;">
+              <h3 class="text-black mb-4 text-center">Optimización del tiempo</h3>
+              <p class="mb-4 text-center">Posibilita a los docentes el monitoreo de secuencias didácticas de manera ágil y sencilla ahorrando tiempo valioso en la planificación y seguimiento de las actividades.</p>
+              <h3 class="text-black mb-4 text-center">Información centralizada y accesible</h3>
+              <p class="mb-4 text-center">Facilita la detección temprana de problemas y la coordinación entre los diferentes actores de la institución.</p>
+            </div>
+          </div>
+
+          <div class="row mb-5 align-items-center">
+            <div class="col-lg-7 mb-5" data-aos="fade-up" data-aos-delay="100">
+              <img style="border-radius:20px;" src="images/planificacion.png" alt="Image" class="img-fluid">
+            </div>
+            <div class="col-lg-5" data-aos="fade-up" data-aos-delay="200" style="padding-left: 70px;">
+              <h3 class="text-black mb-4 text-center">Enfoque en la planificación estratégica</h3>
+              <p class="mb-4 text-center">Permite prever acciones y optimizar procesos a través de la calendarización de la planificación.</p>
+              <h3 class="text-black mb-4 text-center">Basado en los Diseños Curriculares Oficiales</h3>
+              <p class="mb-4 text-center">Garantiza que los contenidos ofrecidos estén alineados con las normativas educativas oficiales.</p>
+            </div>
+          </div>
+        </div>
+
+  
+    <div class="site-section" id="teachers-section" style="background:#ea878a;"></div>
+
+    <div class="site-section teachers-title" id="teachers-section">
+      <div class="container">
+
+        <div class="row mb-5 justify-content-center">
+          <div class="col-lg-12 mb-5 text-center" data-aos="fade-up" data-aos-delay="">
+            <h2 class="section-title">Quienes somos</h2>
+             </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section teachers-entry-wrap" data-aos="fade-up" data-aos-delay="100" style="margin-top: 30px;">
+      <div class="container">
+            <p class="mb-4 text-left Baloo-quienes-somos">“María tiene 48 años, es Profesora en Cs. de la Educación y, actualmente, es directora de nivel inicial y primario de una institución educativa. Tiene 3 hijos en edad escolar.</p>
+            <p class="mb-4 text-left Baloo-quienes-somos">El colegio es doble turno, lo cual, le ocupa mucho tiempo porque, si bien, su horario es rotativo, constantemente hay focos que atender: que hacen que se pierda la atención hacia lo pedagógico.</p>
+            <p class="mb-4 text-left Baloo-quienes-somos">María siente que está fallando en lo más importante, comprobar si se está enseñando bien, ya que ella piensa que la razón de ser de un colegio, son los alumnos y sus aprendizajes.</p>
+            <p class="mb-4 text-left Baloo-quienes-somos">Si bien disfruta mucho  de su profesión, se siente agobiada y cansada, necesita alguna herramienta que en cualquier momento y desde cualquier lugar, le permita saber cómo avanzaron, por ejemplo, en 2do B, con la secuencia de matemática, o cuánto le falta a 5to A para terminar el análisis del libro que estaban leyendo, ¿estarán preparadas las secuencias que continúan?, ¿se llegará a fin del trimestre con lo que se había proyectado o habrá que ajustar?”</p>
+            <p class="mb-4 text-left" style="text-indent:2em;">
+              Por todo esto, surge Sabium.  Conocemos a María, Andrea, a Marcela, a Raul, etc., conocemos las necesidades reales de equipos directivos y docentes, conocemos el esfuerzo diario que ellos realizan para que sus alumnos aprendan contra viento y marea, conocemos la falta de tiempo, conocemos la sobre exigencia de trabajo y las situaciones urgentes, conocemos muchos de los inconvenientes que surgen en el día a día; sea cuál sea la institución en donde trabajen. Sabium está pensado por y para ellos.
+            </p>
+          </div>
+        </div>
+
+        <div class="row container_teachers">
+          <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="teacher text-center">
+              <img src="images/user.png" alt="Image" class="img-fluid w-50 rounded-circle mx-auto mb-4">
+              <div class="py-2">
+                <h3 class="text-black">Marina Alfie</h3>
+                <p class="position">Licenciada en Sistemas de Información.</p>
+                <p style="text-align:left;">Profesora Universitaria (en curso).</p>
+                <p style="text-align:left;">Coordinadora del área de Matemática en nivel primario y secundario. </p> 
+                <p style="text-align:left;">Profesora de Matemática y Programación en nivel secundario.</p>  
+                <p style="text-align:left;">Miembro de la comisión directiva de una asociación civil y cultural sin fines de lucro con la educación como objeto.</p> 
+                <p style="text-align:left;">Maestra de Inglés.</p> 
+                <p style="text-align:left;">Instructora de yoga.</p> 
+                <p style="text-align:left;">Mamá de 4 hijos.</p> 
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="teacher text-center">
+              <img src="images/user.png" alt="Image" class="img-fluid w-50 rounded-circle mx-auto mb-4">
+              <div class="py-2">
+                <h3 class="text-black">Blanca Goyenechea</h3>
+                <p class="position">Physics Teacher</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro eius suscipit delectus enim iusto tempora, adipisci at provident.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="teacher text-center">
+              <img src="images/user.png" alt="Image" class="img-fluid w-50 rounded-circle mx-auto mb-4">
+              <div class="py-2">
+                <h3 class="text-black">María Veronica Ludevid</h3>
+                <p class="position">Physics Teacher</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro eius suscipit delectus enim iusto tempora, adipisci at provident.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="site-section testimony-section">
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-md-8 text-center testimony">
+            <img src="images/LOGO.png" alt="Image" class="img-fluid w-25 mb-4 logo-sabium2">
+            <blockquote>
+              <p class= ".section-text"style="text-align:center; color:#69a9a9;">Sabium te ofrece una visión clara y en tiempo real de lo que sucede en cada aula.<br>Empodera a directivos y docentes con información precisa para una gestión pedagógica más efectiva.</p>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="site-section bg-light" id="contact-section">
+      <div class="container">
+
+        <div class="row justify-content-center">
+          <div class="col-md-7">
+            <h2 class="section-title mb-3 text-center">Formulario de contacto</h2>
+            <p class="mb-5 text-center">¿Necesitas más información? Llena el formulario y te contactaremos a la brevedad.</p>
+          
+            <form action="#" method="post" data-aos="fade" name="Form_Contacto" id="Form_Contacto">
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <input id="asunto" name="asunto" type="text" class="form-control" placeholder="Asunto">
+                  <div id="error_asunto" class="help-block with-errors"></div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-6 mb-3 mb-lg-0">
+                  <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre">
+                  <div id="error_nombre" class="help-block with-errors"></div>
+                </div>
+                <div class="col-md-6">
+                  <input id="apellido" name="apellido" type="text" class="form-control" placeholder="Apellido">
+                  <div id="error_apellido" class="help-block with-errors"></div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <input id="colegio" name="colegio" type="text" class="form-control" placeholder="Colegio">
+                  <div id="error_colegio" class="help-block with-errors"></div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <input id="cargo" name="cargo" type="text" class="form-control" placeholder="Cargo">
+                  <div id="error_cargo" class="help-block with-errors"></div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <input id="telefono" name="telefono" type="telefono" class="form-control" placeholder="Teléfono">
+                  <div id="error_telefono" class="help-block with-errors"></div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <input id="email" name="email" type="email" class="form-control" placeholder="Email">
+                  <input id="key" name="key" type="hidden">
+                  <div id="error_email" class="help-block with-errors"></div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <textarea id="mensaje" name="mensaje" class="form-control" cols="30" rows="10" placeholder="Escriba su mensaje aquí."></textarea>
+                  <div id="error_mensaje" class="help-block with-errors"></div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md-4">
+                  <input type="button" onClick="insert_contacto2()" class="btn btn-primary btn-enviar py-3 px-4 btn-block btn-pill" value="Enviar mensaje">
+                </div>
+                <div class="col-md-8">
+                  <div id="mensaje_envio_ok" class="envio-block"></div>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer-section bg-white">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h3>Acerca de Sabium</h3>
+            <p>Es un seguimiento de lo que acontece pedagógicamente en las aulas en tiempo real.</p>
+            
+            <!-- Redes Sociales -->
+            <div class="social-icons mt-4">
+              <a href="#" class="social-link me-3" title="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="social-link me-3" title="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" class="social-link me-3" title="Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-link" title="X (Twitter)">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-md-3 ml-auto">
+            <h3>Links</h3>
+            <ul class="list-unstyled footer-links">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Ventajas a un click</a></li>
+              <li><a href="#">Publico y Comunidad</a></li>
+              <li><a href="#">Quienes somos</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-4">
+            <h3>Suscribirse</h3>
+            <p>Completa tu dirección de correo para recibir las últimas novedades.</p>
+            <form action="#" class="footer-subscribe">
+              <div class="d-flex mb-5">
+                <input type="text" class="form-control rounded-0" placeholder="Email" style="height:43px!important;">
+                <input type="submit" class="btn btn-primary rounded-0" value="Suscribirse">
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="row pt-5 mt-5 text-center">
+          <div class="col-md-12">
+            <div class="border-top pt-5">
+              <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Sabium</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div> <!-- .site-wrap -->
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/bootstrap-datepicker.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.fancybox.min.js"></script>
+  <script src="js/jquery.sticky.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/funciones.js"></script>
+  </body>
+</html>
