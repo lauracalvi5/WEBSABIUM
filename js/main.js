@@ -306,7 +306,7 @@ jQuery(document).ready(function($) {
   siteScroll();
 });
 
-/* ===== Sabium – Orquestación portada ===== */
+/* Sabium – logo animación */
 (function(){
   var hero = document.querySelector('.sabium-hero');
   if(!hero) return;
@@ -314,37 +314,28 @@ jQuery(document).ready(function($) {
   var curveImg = hero.querySelector('.curve');
   var sparkImg = hero.querySelector('.spark');
   var calImg   = hero.querySelector('.calendar');
-  var logoImg  = hero.querySelector('img[src*="LOGO_1"]'); // Busca la imagen del logo
+  var logoImg  = hero.querySelector('img[src*="LOGO_1"]'); 
 
-  // Función para hacer rebotar el logo
   function bounceLogo(){
     return new Promise(function(resolve){
       if(!logoImg) { resolve(); return; }
       logoImg.style.opacity = '1';
       logoImg.style.animation = 'bounce 2.5s cubic-bezier(.2,.7,.2,1)';
-      
-      // Esperar a que termine la animación antes de continuar
       setTimeout(function(){
         resolve();
-      }, 2500); // 2.5 segundos
+      }, 2500); 
     });
   }
 
-  // Función typewriter que retorna una promesa
+  // Función typewriter 
   function typewriter(){
     return new Promise(function(resolve){
       const root = document.getElementById('sabiumHero');
       if(!root) { resolve(); return; }
-
       const box = root.querySelector('.typewriter');
       if(!box) { resolve(); return; }
-      
-      const text = "aulas a un clic";      // <-- tu frase
-
-      // Si hubiera un typewriter viejo corriendo, lo cancelamos
+      const text = "aulas a un clic";      
       if (box.__timer) { clearTimeout(box.__timer); delete box.__timer; }
-
-      // Estado inicial: SIN texto y SIN carets previos
       box.innerHTML = '';
       const tn = document.createTextNode('');
       const caret = document.createElement('span');
@@ -355,13 +346,13 @@ jQuery(document).ready(function($) {
       let i = 0;
       (function type(){
         if (i < text.length){
-          tn.textContent = text.slice(0, i + 1);     // escribe la letra actual
+          tn.textContent = text.slice(0, i + 1);     
           i++;
-          box.__timer = setTimeout(type, 70);        // velocidad
+          box.__timer = setTimeout(type, 70);       
         } else {
-          caret.remove();                            // quita el cursor al final
+          caret.remove();                            
           delete box.__timer;
-          resolve();                                 // resuelve la promesa
+          resolve();                               
         }
       })();
     });
@@ -399,13 +390,11 @@ jQuery(document).ready(function($) {
     entries.forEach(async function(e){
       if(!e.isIntersecting) return;
       io.disconnect();
-      
-      // Secuencia ordenada: bounceLogo -> typewriter -> popSpark -> revealCurve -> bounceCalendar
-      await bounceLogo();           // 1. Rebote del logo primero (esperar a que termine)
-      await typewriter();           // 2. Escribir el texto después
-      popSpark();                   // 3. Luego el spark
-      await revealCurve(1800);      // 4. Después la curva
-      bounceCalendar();             // 5. Finalmente el calendario
+      await bounceLogo();           
+      await typewriter();           
+      popSpark();                  
+      await revealCurve(1800);     
+      bounceCalendar();            
     });
   }, { threshold: 0.5 });
 
