@@ -5,20 +5,6 @@
  });
 
 jQuery(document).ready(function($) {
-	setTimeout(function() {
-		var tagline = document.getElementById("sabiumTagline");
-		if (!tagline) return;
-		var duration = 2500; 
-		var start = null;
-		function step(ts) {
-			if (!start) start = ts;
-			var p = Math.min(1, (ts - start) / duration);
-			tagline.style.setProperty('--reveal', (p * 100) + '%');
-			if (p < 1) requestAnimationFrame(step);
-		}
-		requestAnimationFrame(step);
-	}, 7000);
-
 	"use strict";
 
 	

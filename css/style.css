@@ -1,4 +1,3 @@
-
 body {
   line-height: 1.7;
   color: gray;
@@ -1475,18 +1474,21 @@ h1, h2, h3, h4, h5,
 }
 
 .boton-demo {
-  font-size: 1.2rem !important;
-  width: 300px;
+  font-size: 1.1rem !important; 
+  width: 280px !important;
+  display: block !important;
+  margin: 90px auto 0 auto !important;
   text-align: center !important;
-  display: inline-block !important;
-  width: auto !important;
-  justify-content: center !important;
-  align-items: center !important;
+  padding: 14px 0 !important; 
+  box-sizing: border-box !important;
+  overflow: hidden !important;
 }
-.boton-demo span, .boton-demo {
+
+.boton-demo span {
+  display: inline !important;
+  width: auto !important;
   text-align: center !important;
-  width: 100%;
-  display: inline-block;
+  padding: 0 !important;
 }
 
 .teachers-title  {
@@ -1506,6 +1508,9 @@ h1, h2, h3, h4, h5,
   margin: 0 auto 18px;
   z-index: 1;
   overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .sabium-hero .logo-sabium{
@@ -2173,36 +2178,12 @@ h1, h2, h3, h4, h5,
 
 .subtagline{
   color:#fff !important;
-  font-size: 1.1rem !important; 
-  margin-top: 40px; 
+  font-size: 1.2rem !important; 
+  margin-top: 20px; 
   margin-bottom: -55px; 
-  margin-left: 35px;
   position: relative;
-  z-index: 1;
-  font-weight: 600;
-  -webkit-mask-image: linear-gradient(90deg, #000 0 var(--reveal,0%), transparent var(--reveal,0%));
-  mask-image: linear-gradient(90deg, #000 0 var(--reveal,0%), transparent var(--reveal,0%));
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-  --reveal: 0%;
-}
-.subtagline::after {
-  content: "";
-  position: absolute;
-  left: 0; bottom: -2px;
-  width: 100%; height: 4px;
-  background: linear-gradient(90deg,#ffffff,#ffffff);
-  border-radius: 4px;
-  z-index: 0;
-  transform: scaleX(0);
-  transform-origin: left;
-  animation: underline 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  animation-delay: 7s;
-}
-@keyframes underline {
-  to { transform: scaleX(1); }
+  text-align: center;
+  display: block;
 }
 
 
@@ -2212,8 +2193,8 @@ h1, h2, h3, h4, h5,
 
 
 .btn-solucion{
-  background-color:#64778d !important;
-  border-color:#848587 !important;
+  background-color:#ea878a !important;
+  border-color: #ea878a !important;
   border-radius: 0px !important; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
 }
@@ -2223,3 +2204,5 @@ h1, h2, h3, h4, h5,
     border-color: none !important;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
 }
+
+
