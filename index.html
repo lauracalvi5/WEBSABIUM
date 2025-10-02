@@ -153,55 +153,52 @@
           <div class="row align-items-center">
             <div class="col-12">
               <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 container-logo">
-                  <div id="sabiumHero" class="sabium-hero" data-aos="fade-up" data-aos-delay="500">
-                    <img src="images/LOGO_1.png" class="logo-sabium" alt="Logo Sabium">
-                    <div class="typewriter" aria-label="aulas a un clic"></div>
-                    <img src="images/CLIC-04.png"              alt="" class="spark"    aria-hidden="true">
-                    <img src="images/RENGLONES-05.png"         alt="" class="curve"    aria-hidden="true">
-                    <img src="images/ALMANAQUE-03.png"         alt="" class="calendar" aria-hidden="true">
-                  </div>
+                <div class="col-12 d-flex flex-column flex-lg-row align-items-center gap-4">
+                  <div class="container-logo w-100 w-lg-50 mb-4 mb-lg-0">
+                    <div id="sabiumHero" class="sabium-hero" data-aos="fade-up" data-aos-delay="500">
+                      <img src="images/LOGO_1.png" class="logo-sabium" alt="Logo Sabium">
+                      <div class="typewriter" aria-label="aulas a un clic"></div>
+                      <img src="images/CLIC-04.png" alt="" class="spark" aria-hidden="true">
+                      <img src="images/RENGLONES-05.png" alt="" class="curve" aria-hidden="true">
+                      <img src="images/ALMANAQUE-03.png" alt="" class="calendar" aria-hidden="true">
+                    </div>
                     <p class="text-center text-justify subtagline" id="sabiumTagline" data-aos="fade-up" data-aos-delay="500">
                       Somos la primera plataforma educativa que integra planificación y monitoreo pedagógico en tiempo real.
                     </p>
                     <p class="text-center">
-                      <a href="demo.html" class="btn btn-primary boton-demo py-3 px-5 btn-pill" data-aos="fade-up" data-aos-delay="500">Solicitar demo gratuita</a>
+                      <a href="demo.html" class="btn btn-primary boton-demo py-3 px-5 btn-pill w-100 mb-3">Solicitar demo gratuita</a>
                     </p>
-                </div>
-
-                <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="500">
-                  <form action="login_valida.asp" method="post" class="form-box">
-                    <h3 class="h4 text-black mb-4 text-center">Ingreso al Sistema</h3>
-
-                    <div class="form-group">
-                      <input type="text" class="form-control" placeholder="DNI" id="DNI" name="DNI" maxlength="8">
-                    </div>
-
-                    <div class="form-group">
-                      <input type="password" class="form-control" placeholder="Contraseña" id="contraseña" name="contraseña" maxlength="4">
-                    </div>
-
-                    <div class="form-group">
-                      <select class="form-control campo_corto" name="cb_colegio" id="cb_colegio" style="width:100%;">
-                        <option value="" selected>Seleccione su institución</option>
-                        <%
-                          SQL_Colegios = "SELECT * FROM colegios WHERE col_baja='N' ORDER BY col_nombre"
-                          set rs_Colegios=Conn.Execute (sql_Colegios)
-                          do until rs_Colegios.eof
-                        %>
-                          <option value="<%=rs_Colegios("col_id")%>"><%=ucase(rs_Colegios("col_nombre"))%></option>
-                        <%
-                          rs_Colegios.movenext
-                          loop
-                        %>
-                      </select>
-                    </div>
-
-                    <div class="form-group text-center">
-                      <input type="submit" class="btn btn-primary btn-pill" value="Acceder">
-                    </div>
-                    <small class="text-center d-block">¿Problemas para iniciar sesión? ¿Olvidó su clave?</small>
-                  </form>
+                  </div>
+                  <div class="w-100 w-lg-50">
+                    <form action="login_valida.asp" method="post" class="form-box mt-2 mt-lg-0">
+                      <h3 class="h4 text-black mb-4 text-center">Ingreso al Sistema</h3>
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="DNI" id="DNI" name="DNI" maxlength="8">
+                      </div>
+                      <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Contraseña" id="contraseña" name="contraseña" maxlength="4">
+                      </div>
+                      <div class="form-group">
+                        <select class="form-control campo_corto" name="cb_colegio" id="cb_colegio" style="width:100%;">
+                          <option value="" selected>Seleccione su institución</option>
+                          <%
+                            SQL_Colegios = "SELECT * FROM colegios WHERE col_baja='N' ORDER BY col_nombre"
+                            set rs_Colegios=Conn.Execute (sql_Colegios)
+                            do until rs_Colegios.eof
+                          %>
+                            <option value="<%=rs_Colegios("col_id")%>"><%=ucase(rs_Colegios("col_nombre"))%></option>
+                          <%
+                            rs_Colegios.movenext
+                            loop
+                          %>
+                        </select>
+                      </div>
+                      <div class="form-group text-center">
+                        <input type="submit" class="btn btn-primary btn-pill w-100" value="Acceder">
+                      </div>
+                      <small class="text-center d-block">¿Problemas para iniciar sesión? ¿Olvidó su clave?</small>
+                    </form>
+                  </div>
                 </div>
 
               </div>
@@ -437,55 +434,55 @@
       <div class="container">
 
         <div class="row justify-content-center">
-          <div class="col-md-7">
+          <div class="col-md-7 p-3 p-md-5 rounded-4 bg-white shadow">
             <h2 class="section-title mb-3 text-center">Formulario de contacto</h2>
             <p class="mb-5 text-center">¿Necesitas más información? Llena el formulario y te contactaremos a la brevedad.</p>
           
             <form action="#" method="post" data-aos="fade" name="Form_Contacto" id="Form_Contacto">
               <div class="form-group row">
                 <div class="col-md-12">
-                  <input id="asunto" name="asunto" type="text" class="form-control" placeholder="Asunto">
+                  <input id="asunto" name="asunto" type="text" class="form-control rounded-3" placeholder="Asunto">
                   <div id="error_asunto" class="help-block with-errors"></div>
                 </div>
               </div>
               <div class="form-group row">
                 <div class="col-md-6 mb-3 mb-lg-0">
-                  <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre">
+                  <input id="nombre" name="nombre" type="text" class="form-control rounded-3" placeholder="Nombre">
                   <div id="error_nombre" class="help-block with-errors"></div>
                 </div>
                 <div class="col-md-6">
-                  <input id="apellido" name="apellido" type="text" class="form-control" placeholder="Apellido">
+                  <input id="apellido" name="apellido" type="text" class="form-control rounded-3" placeholder="Apellido">
                   <div id="error_apellido" class="help-block with-errors"></div>
                 </div>
               </div>
               <div class="form-group row">
                 <div class="col-md-12">
-                  <input id="colegio" name="colegio" type="text" class="form-control" placeholder="Colegio">
+                  <input id="colegio" name="colegio" type="text" class="form-control rounded-3" placeholder="Colegio">
                   <div id="error_colegio" class="help-block with-errors"></div>
                 </div>
               </div>
               <div class="form-group row">
                 <div class="col-md-12">
-                  <input id="cargo" name="cargo" type="text" class="form-control" placeholder="Cargo">
+                  <input id="cargo" name="cargo" type="text" class="form-control rounded-3" placeholder="Cargo">
                   <div id="error_cargo" class="help-block with-errors"></div>
                 </div>
               </div>
               <div class="form-group row">
                 <div class="col-md-12">
-                  <input id="telefono" name="telefono" type="telefono" class="form-control" placeholder="Teléfono">
+                  <input id="telefono" name="telefono" type="telefono" class="form-control rounded-3" placeholder="Teléfono">
                   <div id="error_telefono" class="help-block with-errors"></div>
                 </div>
               </div>
               <div class="form-group row">
                 <div class="col-md-12">
-                  <input id="email" name="email" type="email" class="form-control" placeholder="Email">
+                  <input id="email" name="email" type="email" class="form-control rounded-3" placeholder="Email">
                   <input id="key" name="key" type="hidden">
                   <div id="error_email" class="help-block with-errors"></div>
                 </div>
               </div>
               <div class="form-group row">
                 <div class="col-md-12">
-                  <textarea id="mensaje" name="mensaje" class="form-control" cols="30" rows="10" placeholder="Escriba su mensaje aquí."></textarea>
+                  <textarea id="mensaje" name="mensaje" class="form-control rounded-3" cols="30" rows="10" placeholder="Escriba su mensaje aquí."></textarea>
                   <div id="error_mensaje" class="help-block with-errors"></div>
                 </div>
               </div>
@@ -493,7 +490,7 @@
 
               <div class="form-group row justify-content-center">
                 <div class="col-md-6 text-center">
-                  <input type="button" onClick="insert_contacto2()" class="btn btn-primary btn-enviar py-3 px-4 btn-block btn-pill mx-auto" value="Enviar mensaje">
+                  <input type="button" onClick="insert_contacto2()" class="btn btn-primary btn-enviar py-3 px-4 btn-block btn-pill mx-auto w-100" value="Enviar mensaje">
                   <div id="mensaje_envio_ok" class="envio-block mt-3"></div>
                 </div>
               </div>
