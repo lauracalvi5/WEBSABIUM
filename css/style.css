@@ -68,9 +68,6 @@ h1,h2,h3,h4,h5,.h1,.h2,.h3,.h4,.h5{
   width:500px!important;height:auto!important;
   max-width:none!important;max-height:none!important;box-sizing:border-box!important;
 }
-@media (max-width:334px){
-  .logo-sabium{max-width:120px!important;width:70vw!important}
-}
 
 /* FORMS / CONTROLS / BUTTONS */
 .btn{
@@ -755,8 +752,15 @@ h1,h2,h3,h4,h5,.h1,.h2,.h3,.h4,.h5{
 }
 
 
-@media (min-width:200px) and (max-width:360px),
-       (min-width:360px) and (max-width:991.98px){
+@media (min-width:200px) and (max-width:360px){
+.sabium-hero{ max-width: 92vw !important; padding: 10px !important; }
+  .sabium-hero .logo-sabium{ margin-bottom: 17px !important; width: 295px !important; max-width: 270px !important;}
+  .sabium-hero .typewriter{ position: absolute; top: 61%; left: 56%; transform: translateX(-50%); font-family: "Courier New", Courier, monospace; font-size: 12px !important; font-weight: bolder !important; letter-spacing: .06em; color: #69a9a9 !important; white-space: nowrap; pointer-events: none; z-index: 3;}
+  .sabium-hero .spark{width:6%!important;top:61%!important;left:75%!important}
+  .sabium-hero .curve{width:20%!important;left:80%!important;top:33%!important}
+  .sabium-hero .calendar{width:8%!important;top:11%!important;right:-2%!important}
+}
+@media (min-width:360px) and (max-width:991.98px){
   .subtagline{font-size:1.1rem!important;margin-top:16px;margin-bottom:18px;padding:0 12px;line-height:1.3}
   .sabium-hero{max-width:92vw!important;padding:10px!important}
   .sabium-hero .logo-sabium{margin-bottom:17px!important;width:295px!important;max-width:295px!important}
@@ -778,4 +782,3 @@ h1,h2,h3,h4,h5,.h1,.h2,.h3,.h4,.h5{
   background-color:#ea878a!important;border-color:#ea878a!important;
   box-shadow:0 4px 8px rgba(0,0,0,.2)!important;
 }
-
