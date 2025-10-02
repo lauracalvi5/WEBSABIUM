@@ -1492,7 +1492,7 @@ h1, h2, h3, h4, h5,
   font-size: 1.1rem !important; 
   width: 280px !important;
   display: block !important;
-  margin: 90px auto 0 auto !important;
+  margin: 50px auto 0 auto !important;
   text-align: center !important;
   padding: 14px 0 !important; 
   box-sizing: border-box !important;
@@ -2200,7 +2200,7 @@ h1, h2, h3, h4, h5,
 .subtagline{
   color:#fff !important;
   font-size: 1.2rem;
-  margin-top: 20px;
+  margin-top: 20px !important;
   margin-bottom: 0;
   position: relative;
   text-align: center;
@@ -2229,7 +2229,7 @@ h1, h2, h3, h4, h5,
 
 
 .container-logo{
-  margin-top: 40px !important;
+  margin-top: 80px !important;
 }
 
 
@@ -2245,6 +2245,5 @@ h1, h2, h3, h4, h5,
     border-color: none !important;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
 }
-
 
 
