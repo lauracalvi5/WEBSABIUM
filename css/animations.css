@@ -1,0 +1,109 @@
+/* ============================================
+   ANIMACIONES DE SCROLL — Sabium
+   Sumar este archivo DESPUÉS de style.css
+   ============================================ */
+
+/* Reveal genérico: fade + subida + desenfoque */
+.reveal {
+	opacity: 0;
+	transform: translateY(40px);
+	filter: blur(6px);
+	transition: opacity .8s cubic-bezier(.2,.65,.3,1),
+	            transform .8s cubic-bezier(.2,.65,.3,1),
+	            filter .8s cubic-bezier(.2,.65,.3,1);
+	will-change: opacity, transform, filter;
+}
+.reveal.in {
+	opacity: 1;
+	transform: translateY(0);
+	filter: blur(0);
+}
+
+/* Grupos con aparición escalonada (tarjetas, chips, etc.) */
+.stagger > * {
+	opacity: 0;
+	transform: translateY(30px);
+	filter: blur(4px);
+	transition: opacity .7s ease, transform .7s ease, filter .7s ease;
+}
+.stagger.in > * {
+	opacity: 1;
+	transform: translateY(0);
+	filter: blur(0);
+}
+.stagger.in > *:nth-child(1) { transition-delay: 0s;   }
+.stagger.in > *:nth-child(2) { transition-delay: .12s; }
+.stagger.in > *:nth-child(3) { transition-delay: .24s; }
+.stagger.in > *:nth-child(4) { transition-delay: .36s; }
+.stagger.in > *:nth-child(5) { transition-delay: .48s; }
+.stagger.in > *:nth-child(6) { transition-delay: .6s;  }
+
+/* ============================================
+   SECCIÓN "4 DIMENSIONES" (#dimList)
+   ============================================ */
+
+.dim-list {
+	position: relative;
+}
+
+/* línea vertical: track fijo + fill que crece con el scroll */
+.dim-line-track,
+.dim-line-fill {
+	position: absolute;
+	left: 28px;
+	top: 0;
+	width: 3px;
+	border-radius: 3px;
+}
+.dim-line-track {
+	height: 100%;
+	background: rgba(0,0,0,.08);
+}
+.dim-line-fill {
+	height: 0%;
+	background: linear-gradient(180deg, var(--coral, #ff6b5b), var(--teal, #2ec4b6));
+	transition: height .15s linear;
+}
+
+/* cada bloque entra alternando de lado según .flip */
+.dim-block .dim-text {
+	opacity: 0;
+	transform: translateX(-50px);
+	filter: blur(6px);
+	transition: opacity .8s ease, transform .8s ease, filter .8s ease;
+}
+.dim-block .dim-visual {
+	opacity: 0;
+	transform: translateX(50px);
+	filter: blur(6px);
+	transition: opacity .8s ease .15s, transform .8s ease .15s, filter .8s ease .15s;
+}
+.dim-block.flip .dim-text {
+	transform: translateX(50px);
+}
+.dim-block.flip .dim-visual {
+	transform: translateX(-50px);
+}
+.dim-block.in .dim-text,
+.dim-block.in .dim-visual {
+	opacity: 1;
+	transform: translateX(0);
+	filter: blur(0);
+}
+
+/* número grande: escala + leve rotación al aparecer */
+.dim-num {
+	opacity: 0;
+	transform: scale(.5) rotate(-8deg);
+	transition: opacity .6s ease, transform .6s ease, color .3s ease;
+}
+.dim-block.in .dim-num {
+	opacity: 1;
+	transform: scale(1) rotate(0deg);
+}
+
+/* el bloque que está "en foco" mientras se scrollea resalta su número */
+.dim-block.active .dim-num {
+	color: var(--coral, #ff6b5b);
+	transform: scale(1.15);
+}
