@@ -171,7 +171,7 @@ jQuery(document).ready(function($) {
 
 				var el = entry.target;
 				observer.unobserve(el);
-				el.style.willChange = 'opacity, transform, filter';
+				el.style.willChange = 'opacity, transform';
 
 				// esperamos dos frames antes de agregar la clase que
 				// dispara la transición: si se agrega en el mismo tick
@@ -287,32 +287,42 @@ jQuery(document).ready(function($) {
   var hero = document.querySelector('.sabium-hero');
   if(!hero) return;
 
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   var curveImg = hero.querySelector('.curve');
   var sparkImg = hero.querySelector('.spark');
   var calImg   = hero.querySelector('.calendar');
-  var logoImg  = hero.querySelector('img[src*="LOGO_1"]'); 
+  var logoImg  = hero.querySelector('img[src*="LOGO_1"]');
 
   function bounceLogo(){
     return new Promise(function(resolve){
       if(!logoImg) { resolve(); return; }
       logoImg.style.opacity = '1';
+      if(reduceMotion){ resolve(); return; }
       logoImg.style.animation = 'bounce 2.5s cubic-bezier(.2,.7,.2,1)';
       setTimeout(function(){
         resolve();
-      }, 2500); 
+      }, 2500);
     });
   }
 
-  // Función typewriter 
+  // Función typewriter
   function typewriter(){
     return new Promise(function(resolve){
       const root = document.getElementById('sabiumHero');
       if(!root) { resolve(); return; }
       const box = root.querySelector('.typewriter');
       if(!box) { resolve(); return; }
-      const text = "aulas a un clic";      
+      const text = "aulas a un clic";
       if (box.__timer) { clearTimeout(box.__timer); delete box.__timer; }
       box.innerHTML = '';
+
+      if(reduceMotion){
+        box.textContent = text;
+        resolve();
+        return;
+      }
+
       const tn = document.createTextNode('');
       const caret = document.createElement('span');
       caret.className = 'caret';
@@ -322,13 +332,13 @@ jQuery(document).ready(function($) {
       let i = 0;
       (function type(){
         if (i < text.length){
-          tn.textContent = text.slice(0, i + 1);     
+          tn.textContent = text.slice(0, i + 1);
           i++;
-          box.__timer = setTimeout(type, 70);       
+          box.__timer = setTimeout(type, 70);
         } else {
-          caret.remove();                            
+          caret.remove();
           delete box.__timer;
-          resolve();                               
+          resolve();
         }
       })();
     });
@@ -338,6 +348,7 @@ jQuery(document).ready(function($) {
 		ms = ms || 1800;
 		return new Promise(function(resolve){
 		if(!curveImg) { resolve(); return; }
+		if(reduceMotion){ curveImg.style.setProperty('--reveal', '100%'); resolve(); return; }
 		curveImg.style.setProperty('--reveal', '0%');
 		var start = null;
 		function step(t){
@@ -353,24 +364,46 @@ jQuery(document).ready(function($) {
   function popSpark(){
     if(!sparkImg) return;
     sparkImg.style.opacity = '1';
+    if(reduceMotion) return;
     sparkImg.style.animation = 'pulse-pop 700ms ease-out';
   }
 
   function bounceCalendar(){
     if(!calImg) return;
     calImg.style.opacity = '1';
+    if(reduceMotion) return;
     calImg.style.animation = 'bounce 1s cubic-bezier(.2,.7,.2,1)';
+  }
+
+  function countUpStats(){
+    document.querySelectorAll('.count-up[data-target]').forEach(function(el){
+      var target = parseFloat(el.getAttribute('data-target'));
+      var suffix = el.getAttribute('data-suffix') || '';
+      if(isNaN(target)) return;
+      if(reduceMotion){ el.textContent = target + suffix; return; }
+      var start = null;
+      var ms = 1200;
+      function step(t){
+        if(!start) start = t;
+        var p = Math.min(1, (t - start)/ms);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * eased) + suffix;
+        if(p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
   }
 
   var io = new IntersectionObserver(function(entries){
     entries.forEach(async function(e){
       if(!e.isIntersecting) return;
       io.disconnect();
-      await bounceLogo();           
-      await typewriter();           
-      popSpark();                  
-      await revealCurve(1800);     
-      bounceCalendar();            
+      countUpStats();
+      await bounceLogo();
+      await typewriter();
+      popSpark();
+      await revealCurve(1800);
+      bounceCalendar();
     });
   }, { threshold: 0.5 });
 
